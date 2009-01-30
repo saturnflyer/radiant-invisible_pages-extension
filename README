@@ -1,0 +1,12 @@
+= Invisible Pages
+
+Invisible Pages was developed for dealing with migrated content from another
+system to allow older content to continue living at it's normal URL. The 
+design of this extension assumes that you have some content that may be directly
+under your Home page, but you don't want the Radiant interface to have so many
+pages on the index. Invisible Pages will keep your interface clean.
+
+See HELP_admin.md for more details.
+
+Built by Saturn Flyer http://www.saturnflyer.com
+Supported by Ignite Social Media http://www.ignitesocialmedia.com

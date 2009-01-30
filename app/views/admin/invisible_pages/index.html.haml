@@ -1,0 +1,10 @@
+%h1 Invisible Pages
+%p These pages exist on your public site, but are hidden from your main page index screen.
+- unless @invisible_pages.blank?
+  %ul
+    - @invisible_pages.each do |page|
+      %li
+        = link_to page.title, edit_admin_page_url(page), :title => page.url
+        = link_to image('remove', :alt => 'remove page'), remove_admin_page_url(page)
+- else
+  %p There are no invisible pages on your system.

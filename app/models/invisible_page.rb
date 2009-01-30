@@ -1,0 +1,2 @@
+class InvisiblePage < Page
+end

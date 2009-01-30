@@ -1,0 +1,17 @@
+- @invisible_pages = InvisiblePage.find(:all)
+#invisible_pages.dashboard_module
+  %h2 Invisible Pages
+  - unless @invisible_pages.blank?
+    %p These pages exist on your site but are hidden from view on the page index screen
+    %ul
+      - @invisible_pages.each do |page|
+        %li 
+          %span.title
+            = link_to page.title, edit_admin_page_url(page), :title => page.url
+          %span.details
+            = "(#{page.status.name})"
+            = "Updated by #{updater_name_for(page)} #{time_ago_in_words page.updated_at.to_time} ago."
+            - if current_user.admin?
+              = link_to "Delete", admin_page_url(page), :method => :delete, :class => 'delete'
+  - else
+    %p There are no invisible pages on your system.
