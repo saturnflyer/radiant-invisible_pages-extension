@@ -1,4 +1,4 @@
-- unless page.kind_of?(InvisiblePage)
+- unless page.invisible?
   %tr.node{:id => "page-#{page.id}", :class =>"level-#{level}#{children_class}#{virtual_class}"}
     - render_region :node, :locals => {:page => page, :level => level, :simple => simple} do |node|
       - node.title_column do

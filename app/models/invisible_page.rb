@@ -1,2 +1,0 @@
-class InvisiblePage < Page
-end

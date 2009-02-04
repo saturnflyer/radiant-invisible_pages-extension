@@ -1,4 +1,4 @@
-- @invisible_pages = InvisiblePage.find(:all)
+- @invisible_pages = Page.find(:all,:conditions => ['invisible = ?', true])
 #invisible_pages.dashboard_module
   %h2 Invisible Pages
   - unless @invisible_pages.blank?

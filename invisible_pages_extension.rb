@@ -11,12 +11,16 @@ class InvisiblePagesExtension < Radiant::Extension
   end
   
   def activate
-    if admin.respond_to?(:dashboard)
+    use_dashboard = 'false'
+    if Radiant::Config.table_exists?
+      Radiant::Config['page.invisibles.use_dashboard'] = 'true' unless Radiant::Config['page.invisibles.use_dashboard']
+      use_dashboard = Radiant::Config['page.invisibles.use_dashboard']
+    end
+    if admin.respond_to?(:dashboard) && use_dashboard == 'true'
       admin.dashboard.index.add :extensions, 'invisible_pages'
     else
       admin.tabs.add "Invisible Pages", "/admin/invisible_pages", :visibility => [:developer, :admin]
     end
-    InvisiblePage
   end
   
   def deactivate
