@@ -11,6 +11,10 @@ class InvisiblePagesExtension < Radiant::Extension
   end
   
   def activate
+    InvisibleFinderPage
+    InvisibleYearIndexPage
+    InvisibleMonthIndexPage
+    InvisibleDayIndexPage
     use_dashboard = 'false'
     if Radiant::Config.table_exists?
       Radiant::Config['page.invisibles.use_dashboard'] = 'true' unless Radiant::Config['page.invisibles.use_dashboard']
